@@ -1,0 +1,42 @@
+// C program to find smallest and second smallest elements 
+#include <stdio.h> 
+#include <limits.h>
+
+void findSmallestNum(int arr[], int size) 
+{ 
+	int i,f,s; 
+	f=s=INT_MAX; 
+	if(size<2)
+	{
+	    printf("No sufficient numbers to campare");
+	    return;
+	}
+	for (i=0; i<size; i++) 
+	{ 
+		if (arr[i] < f) 
+		{ 
+			s = f; 
+			f = arr[i]; 
+		} 
+		else if (arr[i] < s && arr[i] != f) 
+			s = arr[i]; 
+	} 
+	if (s == INT_MAX) 
+		printf("There is no second smallest element\n"); 
+	else
+		printf("The smallest element is %d and second "
+			"Smallest element is %d\n", f, s); 
+} 
+
+int main() 
+{ 
+	int size;
+	printf("Enter array size: ");
+	scanf("%d",&size);
+	int arr[size];
+	printf("\nEnter Array elements: ");
+	for(int i=0; i<size; i++)
+	    scanf("%d",&arr[i]);
+	findSmallestNum(arr, size); 
+	return 0; 
+} 
